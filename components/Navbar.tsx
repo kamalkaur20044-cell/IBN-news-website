@@ -1,10 +1,9 @@
 import Link from 'next/link'
-import "../styles/global.css"
 import React from 'react'
 
 const Navbar = () => {
   return (
-    <nav className='flex mx-auto items-center justify-evenly bg-[var(--primary-color)]  text-lg text-[var(--text-color)] h-12 '>
+    <nav className='flex items-center justify-evenly bg-[#C1121F] text-[#fff] h-10 '>
       <Link href="/">Logo</Link>
 
       <ul className='flex gap-14'>
