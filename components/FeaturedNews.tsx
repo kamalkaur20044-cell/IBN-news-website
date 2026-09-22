@@ -1,144 +1,160 @@
 import Image from "next/image";
+import Link from "next/link";
 
-const newsItems = [
+type SideArticle = {
+  image: string;
+  author: string;
+  timeAgo: string;
+  title: string;
+  category: string;
+  readTime: string;
+};
+
+const mainArticle = {
+  image: "/images/l3.png",
+  author: "Jack Harleom",
+  timeAgo: "10 hours ago",
+  title:"IIT Bombay : ਸਾਹਿਲ ਦੀ ਮੌਤ ਮਗਰੋਂ ਵਿਦਿਆਰਥੀਆਂ ਵੱਲੋਂ ਇਨਸਾਫ਼ ਦੀ ਮੰਗ; ਪ੍ਰਸ਼ਾਸਨਿਕ ਢਾਂਚੇ ’ਚ ਸੁਧਾਰ ਲਈ ਚੁੱਕੀ ਆਵਾਜ਼",
+  description:"ਵਿਦਿਆਰਥੀਆਂ ਨੇ ਸਪੱਸ਼ਟ ਕੀਤਾ ਹੈ ਕਿ ਉਨ੍ਹਾਂ ਦੇ ਵਿਰੋਧ ਪ੍ਰਦਰਸ਼ਨ ਦਾ ਮਕਸਦ ਅਕਾਦਮਿਕ ਬੇਨਿਯਮੀਆਂ ਜਾਂ ਨਕਲ ਨੂੰ ਸਹੀ ਠਹਿਰਾਉਣਾ ਨਹੀਂ ਹੈ, ਸਗੋਂ ਕੈਂਪਸ ਦੀਆਂ ਢਾਂਚਾਗਤ ਖਾਮੀਆਂ ਨੂੰ ਸੁਧਾਰਨਾ ਹੈ, ਤਾਂ ਜੋ ਭਵਿੱਖ ਵਿੱਚ ਕਿਸੇ ਹੋਰ ਵਿਦਿਆਰਥੀ ਨੂੰ ਅਜਿਹੇ ਹਾਲਾਤਾਂ ਦਾ ਸਾਹਮਣਾ ਨਾ ਕਰਨਾ ਪਵੇ",
+  category: "Disaster",
+  readTime: "1 min read",
+};
+
+const sideArticles: SideArticle[] = [
   {
-    image: "/images/featured-news.png",
-    source: "IBN News",
-    time: "1 hour ago",
-    title: "Starbucks ਭਾਰਤ ’ਚ ਖੋਲ੍ਹੇਗੀ ਗਲੋਬਲ ਟੈਕ ਸੈਂਟਰ; 800 ਨੌਕਰੀਆਂ ਹੋਣਗੀਆਂ ਪੈਦਾ",
-    category: "Business",
-    readTime: "2 min read",
-  },
-  {
-    image: "/images/featured-news.png",
-    source: "IBN News",
-    time: "1 hour ago",
-    title: "Starbucks ਭਾਰਤ ’ਚ ਖੋਲ੍ਹੇਗੀ ਗਲੋਬਲ ਟੈਕ ਸੈਂਟਰ; 800 ਨੌਕਰੀਆਂ ਹੋਣਗੀਆਂ ਪੈਦਾ",
-    category: "Business",
+    image: "/images/l1.png",
+    author: "Oliver Grey",
+    timeAgo: "5 hours ago",
+    title: "Stella explains what 'instrumental' Rob Marshall will bring to McLaren in 2024",
+    category: "Sport",
     readTime: "5 min read",
   },
   {
-    image: "/images/featured-news.png",
-    source: "IBN News",
-    time: "2 hours ago",
-    title: "Starbucks ਭਾਰਤ ’ਚ ਖੋਲ੍ਹੇਗੀ ਗਲੋਬਲ ਟੈਕ ਸੈਂਟਰ; 800 ਨੌਕਰੀਆਂ ਹੋਣਗੀਆਂ ਪੈਦਾ",
-    category: "Business",
+    image: "/images/news-2.png",
+    author: "Rey Creig",
+    timeAgo: "2 hours ago",
+    title: "Pope Francis undergoes abdominal surgery in latest health concern",
+    category: "World",
     readTime: "3 min read",
   },
   {
-    image: "/images/featured-news.png",
-    source: "IBN News",
-    time: "1 hour ago",
-    title: "Starbucks ਭਾਰਤ ’ਚ ਖੋਲ੍ਹੇਗੀ ਗਲੋਬਲ ਟੈਕ ਸੈਂਟਰ; 800 ਨੌਕਰੀਆਂ ਹੋਣਗੀਆਂ ਪੈਦਾ",
-    category: "Business",
-    readTime: "2 min read",
+    image: "/images/l3.png",
+    author: "Rey Creig",
+    timeAgo: "2 hours ago",
+    title: "Pope Francis undergoes abdominal surgery in latest health concern mm",
+    category: "World",
+    readTime: "3 min read",
   },
+  {
+    image: "/images/l3.png",
+    author: "Rey Creig",
+    timeAgo: "2 hours ago",
+    title: "Pope Francis undergoes abdominal surgery in latest health concern omm",
+    category: "World",
+    readTime: "3 min read",
+  },
+  
 ];
-
 export default function FeaturedNews() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-16">
-      
-      <div className="grid gap-8 lg:grid-cols-[2fr_1fr]">
+    <section className="mx-auto max-w-[90%] px-0 my-10">
+      {/* Section Header */}
+      <div className="mb-6 flex items-center justify-between border-b border-gray-200 pb-4">
+        <h2 className="text-2xl font-bold text-gray-900">Must Read</h2>
+        <Link
+          href="/news"
+          className="flex items-center gap-1 text-sm font-medium text-[#C1121F] hover:underline"
+        >
+          See all <span className="text-base">›</span>
+        </Link>
+      </div>
 
-        {/* Featured News */}
-        <div className="relative h-[550px] overflow-hidden rounded-2xl">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
 
-          <Image
-            src="/images/featured-news.png"
-            alt="Featured news"
-            fill
-            className="object-cover"
-          />
+        {/* ── LEFT: Main featured article ── */}
+        <Link href="#" className="group block">
+          {/* Image */}
+          <div className="relative h-[260px] w-full overflow-hidden rounded-xl">
+            <Image
+              src={mainArticle.image}
+              alt={mainArticle.title}
+              fill
+              priority
+              className="object-cover transition duration-500 group-hover:scale-105"
+            />
+          </div>
 
-          {/* Overlay Card */}
-          <div className="absolute bottom-8 top- max-w-lg rounded-2xl bg-white p-7 shadow-xl">
-
-            <div className="mb-4 flex items-center gap-3 text-sm text-gray-500">
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-black text-xs text-white">
-                IBN
-              </span>
-
-              <span className="font-medium text-gray-900">
-                IBN Punjab News
-              </span>
-
-              <span>•</span>
-
-              <span>10 mins ago</span>
+          {/* Content */}
+          <div className="mt-4">
+            {/* Author row */}
+            <div className="mb-3 flex items-center gap-2">
+            
+              <span className="text-sm font-medium text-gray-800">{mainArticle.author}</span>
+              <span className="text-gray-300">•</span>
+              <span className="text-xs text-gray-500">{mainArticle.timeAgo}</span>
             </div>
 
-            <h2 className="text-3xl font-semibold leading-tight text-gray-900">
-              Starbucks ਭਾਰਤ ’ਚ ਖੋਲ੍ਹੇਗੀ ਗਲੋਬਲ ਟੈਕ ਸੈਂਟਰ; 800 ਨੌਕਰੀਆਂ ਹੋਣਗੀਆਂ ਪੈਦਾ
-            </h2>
+            {/* Title */}
+            <h3 className="mb-2 text-xl font-bold leading-snug text-gray-900 group-hover:text-[#C1121F] transition-colors duration-200">
+              {mainArticle.title}
+            </h3>
 
-            <p className="mt-4 text-sm leading-6 text-gray-500">
-                ਅਮਰੀਕੀ ਕਾਫ਼ੀ ਚੇਨ ਸਟਾਰਬਕਸ ਨੇ ਦੱਖਣੀ ਭਾਰਤੀ ਸ਼ਹਿਰ ਚੇਨੱਈ ਵਿੱਚ ਗਲੋਬਲ ਕੈਪੇਬਿਲਟੀ ਸੈਂਟਰ (GCC) ਸਥਾਪਤ ਕਰਨ ਲਈ ਇੱਕ ਸਮਝੌਤੇ ’ਤੇ ਦਸਤਖਤ ਕੀਤੇ ਹਨ, ਜਿਸ ਨਾਲ ਲਗਪਗ 800 ਤਕਨਾਲੋਜੀ ਨੌਕਰੀਆਂ ਪੈਦਾ ਹੋਣਗੀਆਂ। ਇਹ ਜਾਣਕਾਰੀ ਤਾਮਿਲਨਾਡੂ ਰਾਜ ਸਰਕਾਰ ਨੇ ਸੋਮਵਾਰ ਨੂੰ ਦਿੱਤੀ।
+            {/* Description */}
+            <p className="mb-3 line-clamp-2 text-sm leading-relaxed text-gray-500">
+              {mainArticle.description}
             </p>
 
-            <div className="mt-6 flex items-center justify-between">
-              <span className="text-sm text-gray-500">
-                Aug 03, 2023
-              </span>
-
-              <span className="text-xl text-gray-400">
-                →
-              </span>
+            {/* Category + read time */}
+            <div className="flex items-center gap-2 text-xs">
+              <span className="font-semibold text-[#C1121F]">{mainArticle.category}</span>
+              <span className="text-gray-300">•</span>
+              <span className="text-gray-500">{mainArticle.readTime}</span>
             </div>
-
           </div>
-        </div>
+        </Link>
 
-
-        {/* Right Side News */}
-        <div className="flex flex-col justify-between">
-
-          {newsItems.map((news, index) => (
-            <article
-              key={index}
-              className="flex gap-4 border-b border-gray-200 pb-5 pt-1 last:border-b-0"
+        {/* ── RIGHT: 3 compact side articles ── */}
+        <div className="flex flex-col divide-y divide-gray-100">
+          {sideArticles.map((article) => (
+            <Link
+              key={article.title}
+              href="#"
+              className="group flex gap-4 py-4 first:pt-0 last:pb-0"
             >
-
-              {/* Image */}
-              <div className="relative h-28 w-36 shrink-0 overflow-hidden rounded-lg">
+              {/* Thumbnail */}
+              <div className="relative h-[90px] w-[130px] shrink-0 overflow-hidden rounded-lg">
                 <Image
-                  src={news.image}
-                  alt={news.title}
+                  src={article.image}
+                  alt={article.title}
                   fill
-                  className="object-cover"
+                  className="object-cover transition duration-300 group-hover:scale-105"
                 />
               </div>
 
-              {/* Content */}
-              <div>
-                <div className="mb-2 flex items-center gap-2 text-xs text-gray-500">
-                  <span className="font-semibold text-gray-900">
-                    {news.source}
-                  </span>
-
-                  <span>•</span>
-
-                  <span>{news.time}</span>
+              {/* Text content */}
+              <div className="flex flex-1 flex-col justify-between min-w-0">
+                {/* Author row */}
+                <div className="flex items-center gap-2 mb-1">
+                  
+                  <span className="text-xs font-medium text-gray-800 truncate">{article.author}</span>
+                  <span className="text-gray-300 text-xs">•</span>
+                  <span className="text-xs text-gray-400 shrink-0">{article.timeAgo}</span>
                 </div>
 
-                <h3 className="text-base font-semibold leading-6 text-gray-900">
-                  {news.title}
-                </h3>
+                {/* Title */}
+                <h4 className="line-clamp-3 text-sm font-semibold leading-snug text-gray-900 group-hover:text-[#C1121F] transition-colors duration-200">
+                  {article.title}
+                </h4>
 
-                <div className="mt-2 flex gap-2 text-xs">
-                  <span className="text-red-600">
-                    {news.category}
-                  </span>
-
-                  <span className="text-gray-400">
-                    • {news.readTime}
-                  </span>
+                {/* Category + read time */}
+                <div className="mt-1 flex items-center gap-2 text-xs">
+                  <span className="font-semibold text-[#C1121F]">{article.category}</span>
+                  <span className="text-gray-300">•</span>
+                  <span className="text-gray-500">{article.readTime}</span>
                 </div>
               </div>
-
-            </article>
+            </Link>
           ))}
-
         </div>
 
       </div>
