@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { Phone, ShieldCheck, Newspaper, Award, Mail, ArrowRight } from "lucide-react";
 
 export const metadata = {
@@ -288,8 +289,8 @@ export default function AboutUsPage() {
               </div>
             </div>
           </section>
-
         </div>
+        <Footer />
       </main>
     </>
   );
