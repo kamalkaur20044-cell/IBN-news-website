@@ -7,7 +7,7 @@ const Navbar = () => {
 
       {/* Logo */}
       <Link href="/" className='flex-shrink-0'>
-        <img src="/images/logo.png" alt='logo' className='h-12 w-auto object-contain' />
+        <img src="/images/logo.png" alt='logo' className='h-14 w-auto object-contain' />
       </Link>
 
       {/* Nav Links */}
