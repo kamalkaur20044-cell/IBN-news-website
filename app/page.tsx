@@ -22,7 +22,7 @@ export default function Home() {
       {/* ticker */}
       <div className=" h-[62px] overflow-hidden border-t-[4px] border-b-[4px] border-red-800">
         <div className="flex h-[18px] items-center justify-between bg-[#c80000] px-3 text-[11px] font-bold text-white">
-          <span className="flex items-center">LIVE <DotIcon /></span>
+          <span className="flex items-center">LIVE <DotIcon className="animate-[dotPulse_1s_ease-in-out_infinite] h-[100%] shadow-amber-600 " /></span>
           <span>10:00AM</span>
         </div>
         <div className="relative flex h-[36px] items-center flex-1 overflow-hidden bg-gray-100">
