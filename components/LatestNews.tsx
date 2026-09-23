@@ -3,7 +3,6 @@ import Link from "next/link";
 
 type NewsItem = {
   image: string;
-  authorAvatar: string;
   source: string;
   time: string;
   title: string;
@@ -15,7 +14,6 @@ type NewsItem = {
 const news: NewsItem[] = [
   {
     image: "/images/l1.png",
-    authorAvatar: "/images/avatar1.png",
     source: "IBN News",
     time: "10 hours ago",
     title: "F1 teams had big upgrades planned for Imola – but what happens now?",
@@ -26,7 +24,6 @@ const news: NewsItem[] = [
   },
   {
     image: "/images/news-2.png",
-    authorAvatar: "/images/avatar2.png",
     source: "IBN News",
     time: "10 hours ago",
     title: "Ukraine war: Wagner boss rubbishes Russian claims of Ukrainian casualties",
@@ -37,7 +34,6 @@ const news: NewsItem[] = [
   },
   {
     image: "/images/l3.png",
-    authorAvatar: "/images/avatar3.png",
     source: "IBN News",
     time: "10 hours ago",
     title: "Brutal killings of two young girls show one of India's biggest problems is getting worse",
@@ -80,14 +76,6 @@ export default function LatestNews() {
 
             {/* Author row */}
             <div className="mb-2 flex items-center gap-2">
-              <div className="relative h-6 w-6 shrink-0 overflow-hidden rounded-full bg-gray-200">
-                <Image
-                  src={item.authorAvatar}
-                  alt={item.source}
-                  fill
-                  className="object-cover"
-                />
-              </div>
               <span className="text-sm font-medium text-gray-800">{item.source}</span>
               <span className="text-gray-300">•</span>
               <span className="text-xs text-gray-500">{item.time}</span>

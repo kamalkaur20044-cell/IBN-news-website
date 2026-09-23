@@ -4,10 +4,10 @@ import React from 'react'
 
 const Footer = () => {
     return (
-        <footer className='w-full py-10 bg-[#0B1F3A] text-white'>
+        <footer className='w-full  py-16 bg-[#0B1F3A] text-white'>
             <div className='flex justify-center gap-28'>
                 <div>
-                    <img src="/images/logo.png" alt='logo' className='h-48 shrink-0 ' />
+                    <img src="/images/logo.png" alt='logo' className='h-14 shrink-0 mb-4' />
                     <h2 className='text-[24px] font-semibold leading-8'>Latest News : Breaking <br /> News and Updates</h2>
                 </div>
                 <div>
