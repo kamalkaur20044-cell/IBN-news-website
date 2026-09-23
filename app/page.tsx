@@ -26,7 +26,7 @@ export default function Home() {
           <span>10:00AM</span>
         </div>
         <div className="relative flex h-[36px] items-center flex-1 overflow-hidden bg-gray-100">
-          <div className="ticker-animation flex h-full items-center shrink-0 gap-20 whitespace-nowrap font-medium md:tracking-[2px] tracking-normal">
+          <div className="ticker-animation flex h-full items-center shrink-0 md:gap-20  whitespace-nowrap font-medium md:tracking-[2px] tracking-normal">
             <span className="text-xs md:text-sm font-medium">Latest Updates From Across India</span>
             <span className="text-xs md:text-sm font-medium">India Wins Today's Cricket Match</span>
             <span className="text-xs md:text-sm font-medium">Punjab Government Announces New Policy</span>
