@@ -53,7 +53,7 @@ function YouTubeVideo({
 
 export default function NewsInVideo() {
   return (
-    <section className="mx-auto w-full max-w-[90%] bg-white px-6 py-10 md:px-8">
+    <section className="mx-auto  mb-16 w-full max-w-[90%] bg-white px-6 py-10 md:px-8">
 
       {/* Header */}
       <div className="mb-7 flex items-center justify-between">

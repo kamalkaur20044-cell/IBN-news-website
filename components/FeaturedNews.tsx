@@ -57,7 +57,7 @@ const sideArticles: SideArticle[] = [
 ];
 export default function FeaturedNews() {
   return (
-    <section className="mx-auto max-w-[90%] px-0 my-10">
+    <section className="mx-auto max-w-[90%] px-0 my-10 ">
       {/* Section Header */}
       <div className="mb-6 flex items-center justify-between border-b border-gray-200 pb-4">
         <h2 className="text-2xl font-bold text-gray-900">Must Read</h2>
