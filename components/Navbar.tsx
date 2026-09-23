@@ -48,6 +48,11 @@ const Navbar = () => {
             World
           </Link>
         </li>
+        <li>
+          <Link href="/contact-us" className='relative py-1 hover:text-[#C1121F] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-[#C1121F] hover:after:w-full after:transition-all after:duration-300'>
+            Contact
+          </Link>
+        </li>
       </ul>
 
 

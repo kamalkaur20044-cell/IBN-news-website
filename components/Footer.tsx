@@ -13,19 +13,19 @@ const Footer = () => {
                 <div>
                     <b className='text-sm uppercase'>HOME</b>
                     <ul className='mt-4 space-y-3 text-sm text-gray-300'>
-                        <li><Link href='#' className='hover:text-white transition'>About Us</Link></li>
-                        <li><Link href='#' className='hover:text-white transition'>Latest News</Link></li>
-                        <li><Link href='#' className='hover:text-white transition'>Blog</Link></li>
-                        <li><Link href='#' className='hover:text-white transition'>IBN Punjab News</Link></li>
+                        <li><Link href='/about-us' className='hover:text-white transition'>About Us</Link></li>
+                        <li><Link href='/' className='hover:text-white transition'>Latest News</Link></li>
+                        <li><Link href='/' className='hover:text-white transition'>Blog</Link></li>
+                        <li><Link href='/IBN-punjab-news' className='hover:text-white transition'>IBN Punjab News</Link></li>
                     </ul>
                 </div>
                 <div>
                     <b className='text-sm uppercase'>Get Help</b>
                     <ul className='mt-4 space-y-3 text-sm text-gray-300'>
-                        <li className='hover:text-white cursor-pointer transition'>Support</li>
+                        <li><Link href='/contact-us' className='hover:text-white cursor-pointer transition'>Support</Link></li>
                         <li className='hover:text-white cursor-pointer transition'>Pricing</li>
                         <li className='hover:text-white cursor-pointer transition'>Media Kit</li>
-                        <li className='hover:text-white cursor-pointer transition'>Contact Us</li>
+                        <li><Link href='/contact-us' className='hover:text-white cursor-pointer transition'>Contact Us</Link></li>
                     </ul>
                 </div>
                 <div>
