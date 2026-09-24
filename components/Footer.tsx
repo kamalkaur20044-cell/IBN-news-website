@@ -15,7 +15,7 @@ const Footer = () => {
                     <div>
                         <b className='md:text-sm text-xs uppercase '>HOME</b>
                         <ul className='mt-4 space-y-3 md:text-sm text-xs text-gray-300'>
-                            <li><Link href='#' className='hover:text-white transition'>About Us</Link></li>
+                            <li><Link href='/about-us' className='hover:text-white transition'>About Us</Link></li>
                             <li><Link href='#' className='hover:text-white transition'>Latest News</Link></li>
                             <li><Link href='#' className='hover:text-white transition'>Blog</Link></li>
                             <li><Link href='#' className='hover:text-white transition'>IBN Punjab News</Link></li>
@@ -27,7 +27,7 @@ const Footer = () => {
                             <li className='hover:text-white cursor-pointer transition'>Support</li>
                             <li className='hover:text-white cursor-pointer transition'>Pricing</li>
                             <li className='hover:text-white cursor-pointer transition'>Media Kit</li>
-                            <li className='hover:text-white cursor-pointer transition'>Contact Us</li>
+                            <li className='hover:text-white cursor-pointer transition'><Link href="/contact-us" >Contact Us</Link></li>
                         </ul>
                     </div>
                 </div>

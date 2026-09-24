@@ -3,7 +3,7 @@
 
 import { SearchIcon, Menu, X } from 'lucide-react'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import{ useState } from 'react'
 
 const navLinks = [
   { name: 'Home', href: '/' },
@@ -25,11 +25,7 @@ const Navbar = () => {
 
         {/* Logo */}
         <Link href='/' className='flex-shrink-0'>
-          <img
-            src='/images/logo.png'
-            alt='logo'
-            className='h-14 w-auto object-contain'
-          />
+          <img src='/images/logo.png' alt='logo' className='h-14 w-auto object-contain'   />
         </Link>
 
         {/* Nav Links */}
@@ -72,46 +68,47 @@ const Navbar = () => {
       {/* Mobile Navbar */}
       <nav className='flex md:hidden sticky top-0 z-50 items-center justify-between h-16 px-4 bg-white shadow-md border-b border-gray-100'>
 
-        {/* Logo */}
         <Link href='/'>
           <img src='/images/logo.png' alt='logo' className='h-12 w-auto object-contain' />
         </Link>
 
-        {/* Hamburger Button */}
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-          className='p-2 text-gray-700'
-        >
-          {isMenuOpen ? (
-            <X size={28} />
-          ) : (
-            <Menu size={28} />
-          )}
-        </button>
+        <div className='flex gap-2 items-center '>
+          <SearchIcon size={25} className='text-gray-600 hover:text-gray-900' />
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+            className='p-2 text-gray-700'
+          >
+            {isMenuOpen ? (
+              <X size={28} />
+            ) : (
+              <Menu size={28} />
+            )}
+          </button>
+        </div>
       </nav>
 
 
       {/* Mobile Menu */}
-     
-        <div className={`fixed top-16 right-0 z-40 w-[50%] h-[calc(100vh-4rem)] bg-white shadow-lg transform transition-transform duration-1000 ease-in-out md:hidden ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
 
-          <ul className='flex flex-col px-5 py-3'>
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <Link
-                  href={link.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className='block py-3 text-gray-700 font-medium hover:text-[#C1121F]'
-                >
-                  {link.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
+      <div className={`fixed top-16 right-0 z-40 w-[60%] h-[calc(100vh-4rem)] bg-white shadow-lg transform transition-transform duration-1000 ease-in-out md:hidden ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
 
-        </div>
-    
+        <ul className='flex flex-col px-5 py-3'>
+          {navLinks.map((link) => (
+            <li key={link.name}>
+              <Link
+                href={link.href}
+                onClick={() => setIsMenuOpen(false)}
+                className='block py-3 text-gray-700 font-medium hover:text-[#C1121F]'
+              >
+                {link.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+      </div>
+
     </>
   )
 }

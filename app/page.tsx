@@ -3,13 +3,7 @@ import LatestNews from "@/components/LatestNews";
 import Navbar from "@/components/Navbar";
 import VideoNews from "@/components/VideoNews";
 import Footer from "@/components/Footer";
-import { DotIcon, Search } from "lucide-react";
-import { Original_Surfer } from "next/font/google";
-
-const originalSurfer = Original_Surfer({
-  subsets: ["latin"],
-  weight: "400",
-});
+import { DotIcon } from "lucide-react";
 
 export default function Home() {
   return (
