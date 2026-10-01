@@ -1,14 +1,40 @@
+'use client'
 import FeaturedNews from "@/components/FeaturedNews";
 import LatestNews from "@/components/LatestNews";
 import Navbar from "@/components/Navbar";
 import VideoNews from "@/components/VideoNews";
 import Footer from "@/components/Footer";
 import { DotIcon } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+
+  type TickerNews ={
+    id:number;
+    title:string;
+    slug:string;
+  };
+
+  const [tickerNews , setTickerNews] =useState<TickerNews[]>([]);
+
+  useEffect(()=>{
+    async function fetchTickerNews(){
+      try{
+         const response = await fetch("/api/news/ticker");
+         const data = await response.json();
+
+         if(Array.isArray(data.news)){
+          setTickerNews(data.news);
+         }
+      }catch(error){
+        console.log("failed to fetch ticker news :",error);
+      }
+    }
+    fetchTickerNews();
+  },[]);
+
   return (
     <>
-      
 
       {/* navbar */}
       <Navbar />
@@ -21,11 +47,12 @@ export default function Home() {
         </div>
         <div className="relative flex h-[36px] items-center flex-1 overflow-hidden bg-gray-100">
           <div className="ticker-animation flex h-full items-center shrink-0 md:gap-20  whitespace-nowrap font-medium md:tracking-[2px] tracking-normal">
-            <span className="text-xs md:text-sm font-medium">Latest Updates From Across India</span>
-            <span className="text-xs md:text-sm font-medium">India Wins Today's Cricket Match</span>
-            <span className="text-xs md:text-sm font-medium">Punjab Government Announces New Policy</span>
-            <span className="text-xs md:text-sm font-medium">India Wins Cricket Match</span>
-          </div>
+            {
+              tickerNews.map((item)=>(
+                <a key={item.id} href={`/news/${item.slug}`}  className="text-xs md:text-sm font-medium">{item.title}</a>
+              ))
+             }
+           </div>
           <div className="absolute right-0 top-0 z-20 flex h-[90%] w-[150px] md:w-[300px] items-center justify-center bg-[#c80000] md:pl-8 text-xs  md:text-[20px] font-bold text-white  [clip-path:polygon(11%_0,100%_0,92%_100%,0_100%)]">
             BREAKING NEWS
           </div>

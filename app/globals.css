@@ -6,20 +6,18 @@ html {
 
 body {
   font-family:sans-serif;
+  background-color:rgb(241, 240, 240);
 }
 
 @keyframes ticker {
-  from {
-    transform: translateX(100%);
-  }
-
+ 
   to {
     transform: translateX(-100%);
   }
 }
 
 .ticker-animation {
-  animation: ticker 20s linear infinite;
+  animation: ticker 25s linear infinite;
 }
 
 @keyframes dotPulse {

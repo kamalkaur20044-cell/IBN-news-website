@@ -3,6 +3,7 @@
 
 import { SearchIcon, Menu, X } from 'lucide-react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import{ useState } from 'react'
 
 const navLinks = [
@@ -17,6 +18,14 @@ const navLinks = [
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [search, setsearch] =useState("")
+  const router =useRouter();
+
+  const handleSearch =()=>{
+    const query =search.trim()
+    if(!query) return
+    router.push(`/search?q=${encodeURIComponent(query)}`)
+  }
 
   return (
     <>
@@ -47,11 +56,17 @@ const Navbar = () => {
 
           {/* Search */}
           <div className='flex w-25 border border-gray-200 text-gray-500 py-1 px-2 rounded-full hover:border-gray-900 hover:text-gray-900'>
-            <SearchIcon className='shrink-0 pr-2' />
+            <button type='button' onClick={handleSearch} aria-label='Search'> <SearchIcon className='shrink-0 pr-2' /></button>
 
             <input
               type='text'
               placeholder='Search'
+              value={search} onChange={(e)=>setsearch(e.target.value)} 
+              onKeyDown={(e)=>{
+                  if(e.key === "Enter"){
+                    handleSearch()
+                  }
+              }}
               className='w-full text-sm bg-transparent text-gray-700 outline-none border-none placeholder:text-gray-400'
             />
           </div>
