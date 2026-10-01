@@ -9,7 +9,7 @@ type News = {
     title: string;
     slug: string;
     excerpt: string | null;
-    image: string | null;
+    image: string;
     author: string | null;
     read_time: string | null;
     published_at: string | null;
